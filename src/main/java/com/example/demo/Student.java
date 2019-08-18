@@ -1,6 +1,9 @@
 package com.example.demo;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Calendar;
 
 @Entity
@@ -11,7 +14,11 @@ public class Student {
 
     private String name;
 
+    @CreationTimestamp
     private Calendar applyTime;
+
+    @CreationTimestamp
+    private Timestamp applyTimestamp;
 
     public Student() {
     }
@@ -38,5 +45,13 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Timestamp getApplyTimestamp() {
+        return applyTimestamp;
+    }
+
+    public void setApplyTimestamp(Timestamp applyTimestamp) {
+        this.applyTimestamp = applyTimestamp;
     }
 }
